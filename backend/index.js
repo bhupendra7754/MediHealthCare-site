@@ -15,8 +15,8 @@ const port = process.env.PORT || 4000;
 
 // ⭐ IMPORTANT: ENABLE CREDENTIALS FOR CLERK COOKIE SESSION
 const allowedOrigins = [
-  "http://localhost:5173", // user frontend
-  "http://localhost:5174", // admin dashboard
+  "https://medihealthcare-site-frontend.onrender.com/", // user frontend
+  "https://medihealthcare-site-admin.onrender.com/", // admin dashboard
 ];
 
 app.use(
