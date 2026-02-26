@@ -1,7 +1,10 @@
 // controllers/doctorController.js
 import jwt from "jsonwebtoken";
 import Doctor from "../models/Doctor.js";
-import { uploadToCloudinary, deleteFromCloudinary } from "../utils/cloudinary.js";
+import {
+  uploadToCloudinary,
+  deleteFromCloudinary,
+} from "../utils/cloudinary.js";
 
 /* ---------------- Helpers ---------------- */
 
@@ -50,7 +53,8 @@ function normalizeDocForClient(raw = {}) {
     doc.schedule = {};
   }
 
-  doc.availability = doc.availability === undefined ? "Available" : doc.availability;
+  doc.availability =
+    doc.availability === undefined ? "Available" : doc.availability;
   doc.patients = doc.patients ?? "";
   doc.rating = doc.rating ?? 0;
   doc.fee = doc.fee ?? doc.fees ?? 0;
@@ -64,12 +68,19 @@ export async function createDoctor(req, res) {
   try {
     const body = req.body || {};
     if (!body.email || !body.password || !body.name) {
-      return res.status(400).json({ success: false, message: "email, password and name are required" });
+      return res
+        .status(400)
+        .json({
+          success: false,
+          message: "email, password and name are required",
+        });
     }
 
     const emailLC = (body.email || "").toLowerCase();
     if (await Doctor.findOne({ email: emailLC })) {
-      return res.status(409).json({ success: false, message: "Email already in use" });
+      return res
+        .status(409)
+        .json({ success: false, message: "Email already in use" });
     }
 
     let imageUrl = body.imageUrl || null;
@@ -77,7 +88,8 @@ export async function createDoctor(req, res) {
     if (req.file?.path) {
       const uploaded = await uploadToCloudinary(req.file.path, "doctors");
       imageUrl = uploaded?.secure_url || uploaded?.url || imageUrl;
-      imagePublicId = uploaded?.public_id || uploaded?.publicId || imagePublicId;
+      imagePublicId =
+        uploaded?.public_id || uploaded?.publicId || imagePublicId;
     }
 
     const schedule = parseScheduleInput(body.schedule);
@@ -106,10 +118,16 @@ export async function createDoctor(req, res) {
     const secret = process.env.JWT_SECRET;
     if (!secret) {
       console.warn("JWT_SECRET is not set");
-      return res.status(500).json({ success: false, message: "Server misconfiguration" });
+      return res
+        .status(500)
+        .json({ success: false, message: "Server misconfiguration" });
     }
 
-    const token = jwt.sign({ id: doc._id.toString(), email: doc.email, role: "doctor" }, secret, { expiresIn: "7d" });
+    const token = jwt.sign(
+      { id: doc._id.toString(), email: doc.email, role: "doctor" },
+      secret,
+      { expiresIn: "7d" },
+    );
 
     const out = normalizeDocForClient(doc.toObject());
     delete out.password;
@@ -131,7 +149,12 @@ export const getDoctors = async (req, res) => {
     const match = {};
     if (q && typeof q === "string" && q.trim()) {
       const re = new RegExp(q.trim(), "i");
-      match.$or = [{ name: re }, { specialization: re }, { speciality: re }, { email: re }];
+      match.$or = [
+        { name: re },
+        { specialization: re },
+        { speciality: re },
+        { email: re },
+      ];
     }
 
     const docs = await Doctor.aggregate([
@@ -149,31 +172,43 @@ export const getDoctors = async (req, res) => {
           appointmentsTotal: { $size: "$appointments" },
           appointmentsCompleted: {
             $size: {
-              $filter: { input: "$appointments", as: "a", cond: { $in: ["$$a.status", ["Confirmed", "Completed"]] } }
-            }
+              $filter: {
+                input: "$appointments",
+                as: "a",
+                cond: { $in: ["$$a.status", ["Confirmed", "Completed"]] },
+              },
+            },
           },
           appointmentsCanceled: {
             $size: {
-              $filter: { input: "$appointments", as: "a", cond: { $eq: ["$$a.status", "Canceled"] } }
-            }
+              $filter: {
+                input: "$appointments",
+                as: "a",
+                cond: { $eq: ["$$a.status", "Canceled"] },
+              },
+            },
           },
           earnings: {
             $sum: {
               $map: {
                 input: {
-                  $filter: { input: "$appointments", as: "a", cond: { $in: ["$$a.status", ["Confirmed", "Completed"]] } }
+                  $filter: {
+                    input: "$appointments",
+                    as: "a",
+                    cond: { $in: ["$$a.status", ["Confirmed", "Completed"]] },
+                  },
                 },
                 as: "p",
-                in: { $ifNull: ["$$p.fees", 0] }
-              }
-            }
-          }
-        }
+                in: { $ifNull: ["$$p.fees", 0] },
+              },
+            },
+          },
+        },
       },
       { $project: { appointments: 0 } },
       { $sort: { name: 1 } },
       { $skip: skip },
-      { $limit: limit }
+      { $limit: limit },
     ]);
 
     const normalized = docs.map((d) => ({
@@ -188,7 +223,7 @@ export const getDoctors = async (req, res) => {
       appointmentsCanceled: d.appointmentsCanceled || 0,
       earnings: d.earnings || 0,
       availability: d.availability ?? "Available",
-      schedule: (d.schedule && typeof d.schedule === "object") ? d.schedule : {},
+      schedule: d.schedule && typeof d.schedule === "object" ? d.schedule : {},
       patients: d.patients ?? "",
       rating: d.rating ?? 0,
       about: d.about ?? "",
@@ -201,7 +236,12 @@ export const getDoctors = async (req, res) => {
 
     const total = await Doctor.countDocuments(match);
 
-    return res.json({ success: true, data: normalized, doctors: normalized, meta: { page, limit, total } });
+    return res.json({
+      success: true,
+      data: normalized,
+      doctors: normalized,
+      meta: { page, limit, total },
+    });
   } catch (err) {
     console.error("getDoctors:", err);
     return res.status(500).json({ success: false, message: "Server error" });
@@ -212,7 +252,10 @@ export async function getDoctorById(req, res) {
   try {
     const { id } = req.params;
     const doc = await Doctor.findById(id).select("-password").lean();
-    if (!doc) return res.status(404).json({ success: false, message: "Doctor not found" });
+    if (!doc)
+      return res
+        .status(404)
+        .json({ success: false, message: "Doctor not found" });
     return res.json({ success: true, data: normalizeDocForClient(doc) });
   } catch (err) {
     console.error("getDoctorById error:", err);
@@ -226,20 +269,32 @@ export async function updateDoctor(req, res) {
     const body = req.body || {};
 
     if (!req.doctor || String(req.doctor._id || req.doctor.id) !== String(id)) {
-      return res.status(403).json({ success: false, message: "Not authorized to update this doctor" });
+      return res
+        .status(403)
+        .json({
+          success: false,
+          message: "Not authorized to update this doctor",
+        });
     }
 
     const existing = await Doctor.findById(id);
-    if (!existing) return res.status(404).json({ success: false, message: "Doctor not found" });
+    if (!existing)
+      return res
+        .status(404)
+        .json({ success: false, message: "Doctor not found" });
 
     if (req.file?.path) {
       const uploaded = await uploadToCloudinary(req.file.path, "doctors");
       if (uploaded) {
         const previousPublicId = existing.imagePublicId;
-        existing.imageUrl = uploaded.secure_url || uploaded.url || existing.imageUrl;
-        existing.imagePublicId = uploaded.public_id || uploaded.publicId || existing.imagePublicId;
+        existing.imageUrl =
+          uploaded.secure_url || uploaded.url || existing.imageUrl;
+        existing.imagePublicId =
+          uploaded.public_id || uploaded.publicId || existing.imagePublicId;
         if (previousPublicId && previousPublicId !== existing.imagePublicId) {
-          deleteFromCloudinary(previousPublicId).catch((e) => console.warn("deleteFromCloudinary warning:", e?.message || e));
+          deleteFromCloudinary(previousPublicId).catch((e) =>
+            console.warn("deleteFromCloudinary warning:", e?.message || e),
+          );
         }
       }
     } else if (body.imageUrl) {
@@ -248,12 +303,29 @@ export async function updateDoctor(req, res) {
 
     if (body.schedule) existing.schedule = parseScheduleInput(body.schedule);
 
-    const updatable = ["name", "specialization", "experience", "qualifications", "location", "about", "fee", "availability", "success", "patients", "rating"];
-    updatable.forEach((k) => { if (body[k] !== undefined) existing[k] = body[k]; });
+    const updatable = [
+      "name",
+      "specialization",
+      "experience",
+      "qualifications",
+      "location",
+      "about",
+      "fee",
+      "availability",
+      "success",
+      "patients",
+      "rating",
+    ];
+    updatable.forEach((k) => {
+      if (body[k] !== undefined) existing[k] = body[k];
+    });
 
     if (body.email && body.email !== existing.email) {
       const other = await Doctor.findOne({ email: body.email.toLowerCase() });
-      if (other && other._id.toString() !== id) return res.status(409).json({ success: false, message: "Email already in use" });
+      if (other && other._id.toString() !== id)
+        return res
+          .status(409)
+          .json({ success: false, message: "Email already in use" });
       existing.email = body.email.toLowerCase();
     }
 
@@ -274,7 +346,10 @@ export async function deleteDoctor(req, res) {
   try {
     const { id } = req.params;
     const existing = await Doctor.findById(id);
-    if (!existing) return res.status(404).json({ success: false, message: "Doctor not found" });
+    if (!existing)
+      return res
+        .status(404)
+        .json({ success: false, message: "Doctor not found" });
 
     if (existing.imagePublicId) {
       try {
@@ -296,14 +371,25 @@ export async function toggleAvailability(req, res) {
   try {
     const { id } = req.params;
     if (!req.doctor || String(req.doctor._id || req.doctor.id) !== String(id)) {
-      return res.status(403).json({ success: false, message: "Not authorized to change availability for this doctor" });
+      return res
+        .status(403)
+        .json({
+          success: false,
+          message: "Not authorized to change availability for this doctor",
+        });
     }
 
     const doc = await Doctor.findById(id);
-    if (!doc) return res.status(404).json({ success: false, message: "Doctor not found" });
+    if (!doc)
+      return res
+        .status(404)
+        .json({ success: false, message: "Doctor not found" });
 
-    if (typeof doc.availability === "boolean") doc.availability = !doc.availability;
-    else doc.availability = doc.availability === "Available" ? "Unavailable" : "Available";
+    if (typeof doc.availability === "boolean")
+      doc.availability = !doc.availability;
+    else
+      doc.availability =
+        doc.availability === "Available" ? "Unavailable" : "Available";
 
     await doc.save();
     const out = normalizeDocForClient(doc.toObject());
@@ -318,18 +404,36 @@ export async function toggleAvailability(req, res) {
 export async function doctorLogin(req, res) {
   try {
     const { email, password } = req.body || {};
-    if (!email || !password) return res.status(400).json({ success: false, message: "Email and password required" });
+    if (!email || !password)
+      return res
+        .status(400)
+        .json({ success: false, message: "Email and password required" });
 
-    const doc = await Doctor.findOne({ email: email.toLowerCase() }).select("+password");
-    if (!doc) return res.status(401).json({ success: false, message: "Invalid credentials" });
+    const doc = await Doctor.findOne({ email: email.toLowerCase() }).select(
+      "+password",
+    );
+    if (!doc)
+      return res
+        .status(401)
+        .json({ success: false, message: "Invalid credentials" });
 
     // Direct comparison (NO bcrypt)
-    if (doc.password !== password) return res.status(401).json({ success: false, message: "Invalid credentials" });
+    if (doc.password !== password)
+      return res
+        .status(401)
+        .json({ success: false, message: "Invalid credentials" });
 
     const secret = process.env.JWT_SECRET;
-    if (!secret) return res.status(500).json({ success: false, message: "JWT_SECRET not configured" });
+    if (!secret)
+      return res
+        .status(500)
+        .json({ success: false, message: "JWT_SECRET not configured" });
 
-    const token = jwt.sign({ id: doc._id.toString(), email: doc.email, role: "doctor" }, secret, { expiresIn: "7d" });
+    const token = jwt.sign(
+      { id: doc._id.toString(), email: doc.email, role: "doctor" },
+      secret,
+      { expiresIn: "7d" },
+    );
 
     const out = doc.toObject();
     delete out.password;
