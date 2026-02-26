@@ -3,7 +3,7 @@ import { Search, X, Phone, Calendar } from "lucide-react";
 import { useParams } from "react-router-dom";
 import { listPageStyles } from "../../assets/dummyStyles";
 
-const API_BASE = "http://localhost:4000";
+const API_BASE = "https://medihealthcare-backend.onrender.com";
 
 /* -------------------------
    Utils

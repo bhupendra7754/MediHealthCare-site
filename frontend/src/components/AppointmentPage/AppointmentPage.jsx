@@ -18,7 +18,7 @@ import {
   iconSize,
 } from "../../assets/dummyStyles";
 
-const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:4000";
+const API_BASE = import.meta.env.VITE_API_URL || "https://medihealthcare-backend.onrender.com";
 const API = axios.create({ baseURL: API_BASE });
 
 /* -------------------- Helpers -------------------- */

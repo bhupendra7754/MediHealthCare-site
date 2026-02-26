@@ -8,7 +8,7 @@ import { loginPageStyles, toastStyles } from "../../assets/dummyStyles";
 const STORAGE_KEY = "doctorToken_v1";
 
 export default function LoginPage({ apiBase }) {
-  const API_BASE = apiBase || "http://localhost:4000";
+  const API_BASE = apiBase || "https://medihealthcare-backend.onrender.com";
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [busy, setBusy] = useState(false);
   const navigate = useNavigate();
