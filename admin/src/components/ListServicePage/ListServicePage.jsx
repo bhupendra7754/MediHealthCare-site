@@ -13,7 +13,7 @@ import {
 import { serviceListStyles as s } from "../../assets/dummyStyles";
 
 export default function ListServicePage({ apiBase }) {
-  const API_BASE = apiBase || "http://localhost:4000";
+  const API_BASE = apiBase || "https://medihealthcare-backend.onrender.com/";
 
   const [services, setServices] = useState([]);
   const [openDetails, setOpenDetails] = useState({});
