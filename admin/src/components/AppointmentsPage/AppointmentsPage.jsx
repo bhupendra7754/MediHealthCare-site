@@ -6,7 +6,7 @@ import { pageStyles, statusClasses, keyframesStyles } from "../../assets/dummySt
 /* ----------------------
   Config
 ------------------------ */
-const API_BASE = "https://medihealthcare-backend.onrender.com/";
+const API_BASE = "https://medihealthcare-backend.onrender.com";
 
 /* ----------------------
   Helpers

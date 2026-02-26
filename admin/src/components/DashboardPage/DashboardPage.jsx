@@ -13,7 +13,7 @@ import { dashboardStyles as s } from "../../assets/dummyStyles";
 /* ----------------------
   Config
 ------------------------ */
-const API_BASE = "https://medihealthcare-backend.onrender.com/";
+const API_BASE = "https://medihealthcare-backend.onrender.com";
 // Endpoint that returns JSON { count: <number> }
 const PATIENT_COUNT_API = `${API_BASE}/api/appointments/paitents/count`;
 

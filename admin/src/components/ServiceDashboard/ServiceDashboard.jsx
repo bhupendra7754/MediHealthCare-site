@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 import { serviceDashboardStyles } from "../../assets/dummyStyles";
 
-const API_BASE = "https://medihealthcare-backend.onrender.com/";
+const API_BASE = "https://medihealthcare-backend.onrender.com";
 
 /* -----------------------
    Normalizer - robust to multiple backend shapes
