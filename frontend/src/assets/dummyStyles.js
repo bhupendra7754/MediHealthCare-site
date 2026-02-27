@@ -77,75 +77,101 @@ export const iconSize = {
 // assets/dummyStyles.js
 
 export const bannerStyles = {
-  // Banner container styles
-  bannerContainer: "relative w-full max-w-7xl mx-auto my-12 px-4",
-  
-  // Main container with animated border
-  mainContainer: "relative rounded-3xl shadow-2xl overflow-hidden group",
-  
-  // Border outline styles
-  borderOutline: "absolute inset-0 rounded-3xl p-[3px] pointer-events-none",
-  outerAnimatedBand: "absolute inset-0 rounded-3xl bg-linear-to-r from-green-400 via-emerald-500 to-green-400 animate-[spin_3s_linear_infinite] opacity-80",
-  innerWhiteBorder: "absolute inset-0.5 rounded-3xl bg-white",
-  
+  // Banner container
+  bannerContainer: "relative w-full max-w-7xl mx-auto my-8 sm:my-10 lg:my-12 px-3 sm:px-4",
+
+  // Main container
+  mainContainer: "relative rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden group",
+
+  // Border outline
+  borderOutline: "absolute inset-0 rounded-2xl sm:rounded-3xl p-[2px] sm:p-[3px] pointer-events-none z-10",
+  outerAnimatedBand: "absolute inset-0 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-green-400 via-emerald-500 to-green-400 animate-[spin_4s_linear_infinite] opacity-70",
+  innerWhiteBorder: "absolute inset-0.5 rounded-2xl sm:rounded-3xl bg-white",
+
   // Content container
-  contentContainer: "relative z-20 p-6 sm:p-8 md:p-10 lg:p-12",
-  
-  // Layout styles
-  flexContainer: "flex flex-col lg:flex-row items-center justify-between gap-8",
-  leftContent: "flex-1 text-center lg:text-left",
-  rightImageSection: "flex-1 relative w-full",
-  
-  // Header with badge
-  headerBadgeContainer: "flex flex-col lg:flex-row items-center justify-center lg:justify-start mb-4 lg:mb-6 gap-4",
+  contentContainer: "relative z-20 p-5 sm:p-8 md:p-10 lg:p-12",
+
+  // Layout
+  flexContainer: "flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8 lg:gap-12",
+  leftContent: "flex-1 text-center lg:text-left w-full",
+  rightImageSection: "flex-1 relative w-full max-w-sm sm:max-w-md lg:max-w-none mx-auto",
+
+  // Header badge
+  headerBadgeContainer: "flex flex-col sm:flex-row items-center justify-center lg:justify-start mb-4 sm:mb-6 gap-3 sm:gap-4",
   stethoscopeContainer: "relative",
-  stethoscopeInner: "relative bg-linear-to-br from-green-300 to-emerald-600 p-3 rounded-full shadow-lg transform -rotate-6 hover:rotate-0 transition-transform duration-300",
-  stethoscopeIcon: "w-7 h-7 text-white",
-  
-  // Title styles
+  stethoscopeInner: "relative bg-gradient-to-br from-green-300 to-emerald-600 p-2.5 sm:p-3 rounded-full shadow-lg transform -rotate-6 hover:rotate-0 transition-transform duration-300",
+  stethoscopeIcon: "w-6 h-6 sm:w-7 sm:h-7 text-white",
+
+  // Title
   titleContainer: "font-[pacifico]",
-  title: "text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-1",
-  titleGradient: "text-transparent bg-linear-to-r from-green-600 to-emerald-600 bg-clip-text",
-  
+  title: "text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-1 banner-title",
+  titleGradient: "text-transparent bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text",
+
   // Stars
   starsContainer: "flex items-center justify-center lg:justify-start mt-1",
   starsInner: "flex gap-1",
-  starIcon: "w-4 h-4 fill-yellow-400 text-yellow-400",
-  
+  starIcon: "w-3.5 h-3.5 sm:w-4 sm:h-4 fill-yellow-400 text-yellow-400",
+
   // Tagline
-  tagline: "text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-gray-700 mb-5 leading-tight",
+  tagline: "text-base sm:text-xl md:text-2xl lg:text-3xl font-light text-gray-700 mb-4 sm:mb-5 leading-tight",
   taglineHighlight: "text-green-600 font-semibold",
-  
+
   // Features grid
-  featuresGrid: "grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6 text-sm sm:text-base",
-  featureItem: "flex items-center justify-center lg:justify-start bg-linear-to-br from-green-500 to-green-200 backdrop-blur-sm p-3 rounded-full shadow-sm border",
-  featureIcon: "w-5 h-5 text-white mr-3",
-  featureText: "text-gray-700 font-medium",
-  
-  // Feature border colors
+  featuresGrid: "grid grid-cols-2 gap-2 sm:gap-3 mb-5 sm:mb-6 text-xs sm:text-sm",
+  featureItem: "flex items-center justify-center lg:justify-start bg-gradient-to-br from-green-500 to-green-200 backdrop-blur-sm p-2 sm:p-3 rounded-full shadow-sm border feature-item",
+  featureIcon: "w-4 h-4 sm:w-5 sm:h-5 text-white mr-2 sm:mr-3 shrink-0",
+  featureText: "text-gray-700 font-medium text-xs sm:text-sm",
+
+  // Feature borders
   featureBorderGreen: "border-green-100",
   featureBorderBlue: "border-blue-100",
   featureBorderEmerald: "border-emerald-100",
   featureBorderPurple: "border-purple-100",
-  
-  // CTA Buttons container
-  ctaButtonsContainer: "flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start",
-  
-  // Book appointment button
-  bookButton: "group relative lg:whitespace-nowrap bg-linear-to-r from-green-500 to-emerald-300 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-full font-semibold transform transition-all duration-300 shadow-2xl hover:shadow-3xl overflow-hidden text-sm sm:text-base",
-  bookButtonOverlay: "absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000",
+
+  // CTA Buttons
+  ctaButtonsContainer: "flex flex-col xs:flex-row gap-2 sm:gap-3 justify-center lg:justify-start",
+
+  // Book button
+  bookButton: "group relative whitespace-nowrap bg-gradient-to-r from-green-500 to-emerald-400 text-white px-5 py-2.5 sm:px-7 sm:py-3.5 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-emerald-300/50 hover:-translate-y-0.5 overflow-hidden text-sm sm:text-base",
+  bookButtonOverlay: "absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700",
   bookButtonContent: "relative flex items-center justify-center gap-2",
   bookButtonIcon: "w-4 h-4 sm:w-5 sm:h-5",
-  
-  // Emergency call button
-  emergencyButton: "group border-2 lg:whitespace-nowrap border-red-400 text-red-600 bg-red-300 px-6 py-3 sm:px-8 sm:py-4 rounded-full font-semibold transform transition-all duration-300 backdrop-blur-sm hover:shadow-lg hover:bg-red-400/80 text-sm sm:text-base",
+
+  // Emergency button
+  emergencyButton: "group border-2 whitespace-nowrap border-red-400 text-red-600 bg-red-50 px-5 py-2.5 sm:px-7 sm:py-3.5 rounded-full font-semibold transition-all duration-300 hover:bg-red-100 hover:shadow-md hover:-translate-y-0.5 text-sm sm:text-base",
   emergencyButtonContent: "flex items-center justify-center gap-2",
   emergencyButtonIcon: "w-4 h-4 sm:w-5 sm:h-5",
-  
+
   // Image section
-  imageContainer: "relative w-full max-w-md mx-auto",
-  imageFrame: "relative transform transition-transform duration-500 overflow-hidden rounded-xl",
-  image: "w-full object-cover h-56 sm:h-72 md:h-96 lg:h-[360px] xl:h-[420px] transition-transform duration-700"
+  imageContainer: "relative w-full",
+  imageFrame: "relative overflow-hidden rounded-xl sm:rounded-2xl shadow-xl transition-transform duration-500 group-hover:scale-[1.01]",
+  image: "w-full object-cover h-52 xs:h-60 sm:h-72 md:h-80 lg:h-[340px] xl:h-[400px] transition-transform duration-700 group-hover:scale-105",
+
+  // Animation styles
+  animationStyles: `
+    @keyframes bannerFadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes featurePop {
+      from { opacity: 0; transform: scale(0.85); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .banner-title {
+      animation: bannerFadeUp 0.6s ease-out forwards;
+    }
+    .feature-item {
+      animation: featurePop 0.4s ease-out forwards;
+    }
+    .feature-item:nth-child(1) { animation-delay: 0.1s; }
+    .feature-item:nth-child(2) { animation-delay: 0.2s; }
+    .feature-item:nth-child(3) { animation-delay: 0.3s; }
+    .feature-item:nth-child(4) { animation-delay: 0.4s; }
+
+    @media (max-width: 400px) {
+      .xs\\:flex-row { flex-direction: row; }
+    }
+  `
 };
 
 export const commonStyles = {
@@ -598,70 +624,64 @@ export const toastStyles = {
 // Navbar styles
 export const navbarStyles = {
   // Main container
-  navbarContainer: "sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-emerald-100 transition-transform duration-500",
-  navbarHidden: "-translate-y-full",
-  navbarVisible: "translate-y-0",
-  
+  navbarContainer: "sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-emerald-100 transition-all duration-500 ease-in-out",
+  navbarHidden: "-translate-y-full opacity-0",
+  navbarVisible: "translate-y-0 opacity-100",
+
   // Border animation
   navbarBorder: "navbar-border",
-  
+
   // Content wrapper
-  contentWrapper: "max-w-7xl font-[pacifico] md:px-2 mx-auto px-4 sm:px-6 lg:px-8",
-  flexContainer: "flex items-center justify-between h-20",
-  
+  contentWrapper: "max-w-7xl mx-auto px-3 sm:px-5 lg:px-8",
+  flexContainer: "flex items-center justify-between h-16 sm:h-18 lg:h-20",
+
   // Logo section
-  logoLink: "flex items-center gap-3 -ml-3 sm:-ml-4",
-  logoContainer: "relative group w-20 h-20 sm:w-24 sm:h-24 lg:w-15 lg:h-15 xl:w-32 xl:h-32",
-  logoImageWrapper: "relative flex items-center justify-center overflow-hidden p-2 mx-1 h-full w-full",
-  logoImage: "w-14 h-14 sm:w-18 sm:h-18 lg:w-15 lg:h-15 xl:w-24 xl:h-24 md:w-20 md:h-20 object-contain",
-  logoTextContainer: "block sm:block",
-  logoTitle: "text-2xl md:text-2xl lg:text-2xl xl:text-2xl font-bold bg-clip-text text-transparent bg-linear-to-r from-emerald-600 to-green-600 tracking-tight",
-  logoSubtitle: "text-xs lg:text-xs text-gray-500",
-  
+  logoLink: "flex items-center gap-2 sm:gap-3 shrink-0",
+  logoContainer: "relative w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14",
+  logoImageWrapper: "flex items-center justify-center h-full w-full overflow-hidden",
+  logoImage: "w-9 h-9 sm:w-11 sm:h-11 lg:w-13 lg:h-13 object-contain transition-transform duration-300 hover:scale-110",
+  logoTextContainer: "hidden sm:block",
+  logoTitle: "text-lg sm:text-xl lg:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-600 to-green-600 tracking-tight leading-tight",
+  logoSubtitle: "text-[10px] sm:text-xs text-gray-500 leading-tight",
+
   // Desktop navigation
-  desktopNav: "hidden lg:-mx-5 lg:flex items-center gap-2",
-  navItemsContainer: "flex gap-1 bg-white border border-emerald-200 p-1 rounded-full shadow-lg",
-  navItem: "nav-item px-5 md:px-4 py-2.5 rounded-full text-sm font-semibold transition-all duration-300",
+  desktopNav: "hidden lg:flex items-center flex-1 justify-center",
+  navItemsContainer: "flex gap-1 bg-white border border-emerald-200 p-1 rounded-full shadow-sm",
+  navItem: "nav-item px-3 xl:px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 cursor-pointer",
   navItemActive: "active",
-  navItemInactive: "text-gray-700 hover:text-emerald-600",
-  
+  navItemInactive: "text-gray-600 hover:text-emerald-600 hover:bg-emerald-50",
+
   // Right side
-  rightContainer: "flex items-center gap-3",
-  
+  rightContainer: "flex items-center gap-2 sm:gap-3",
+
   // Signed out buttons
-  doctorAdminButton: "btn-add hidden lg:inline-flex items-center gap-2 px-3 py-2 rounded-full text-sm font-semibold transition-transform duration-200",
+  doctorAdminButton: "btn-add hidden lg:inline-flex items-center gap-2 px-3 py-2 rounded-full text-sm font-semibold transition-all duration-300",
   doctorAdminIcon: "w-4 h-4",
-  doctorAdminText: "hidden lg:text-xs lg:whitespace-nowrap sm:inline-block",
-  loginButton: "btn-login hidden lg:flex lg:text-sm items-center gap-2 bg-linear-to-r from-emerald-400 to-green-600 text-white px-6 py-2.5 rounded-full font-semibold hover:shadow-xl transition-all duration-300 cursor-default",
+  doctorAdminText: "hidden xl:inline-block text-xs whitespace-nowrap",
+  loginButton: "btn-login hidden lg:flex items-center gap-2 bg-gradient-to-r from-emerald-400 to-green-600 text-white px-4 xl:px-6 py-2 xl:py-2.5 rounded-full text-sm font-semibold hover:shadow-xl transition-all duration-300",
   loginIcon: "w-4 h-4",
-  
+
   // Mobile toggle
-  mobileToggle: "lg:hidden p-2.5 rounded-lg hover:bg-emerald-50 transition-colors",
-  toggleIcon: "w-6 h-6 text-gray-900",
-  
+  mobileToggle: "lg:hidden p-2 rounded-lg hover:bg-emerald-50 transition-colors duration-200 touch-manipulation",
+  toggleIcon: "w-5 h-5 sm:w-6 sm:h-6 text-gray-800",
+
   // Mobile menu
-  mobileMenu: "mobile-menu lg:hidden pb-4 space-y-2 border-t border-emerald-100 pt-4",
-  mobileMenuItem: "block px-4 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300",
-  mobileMenuItemActive: "bg-emerald-500 text-white",
+  mobileMenu: "mobile-menu lg:hidden pb-4 pt-2 space-y-1 border-t border-emerald-100",
+  mobileMenuItem: "block px-4 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200",
+  mobileMenuItemActive: "bg-emerald-500 text-white shadow-sm",
   mobileMenuItemInactive: "text-gray-700 hover:bg-emerald-50 hover:text-emerald-600",
-  
+
   // Mobile signed out buttons
-  mobileDoctorAdminButton: "w-full flex items-center justify-center gap-2 py-2.5 rounded-full border border-emerald-200 bg-white text-sm font-semibold hover:bg-emerald-50 transition-all",
-  mobileLoginContainer: "w-full mt-3",
-  mobileLoginButton: "w-full cursor-default md:rounded-full flex items-center justify-center gap-2 bg-linear-to-r from-emerald-500 to-green-600 text-white py-2.5 rounded-lg font-semibold hover:shadow-lg transition-all",
-  
-  // Animation styles (to be added via style tag)
+  mobileDoctorAdminButton: "w-full flex items-center justify-center gap-2 py-2.5 mt-2 rounded-full border border-emerald-200 bg-white text-sm font-semibold hover:bg-emerald-50 transition-all duration-200",
+  mobileLoginContainer: "w-full mt-2",
+  mobileLoginButton: "w-full flex items-center justify-center gap-2 bg-gradient-to-r from-emerald-500 to-green-600 text-white py-2.5 rounded-full font-semibold hover:shadow-lg transition-all duration-300",
+
+  // Animation styles
   animationStyles: `
     @keyframes borderFlow {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
     .navbar-border {
       height: 2px;
@@ -670,13 +690,13 @@ export const navbarStyles = {
       animation: borderFlow 6s ease infinite;
     }
     .nav-item {
-      animation: slideIn 0.45s ease-out forwards;
       position: relative;
+      animation: navFadeIn 0.3s ease-out forwards;
     }
     .nav-item.active {
       background: white !important;
       color: #059669 !important;
-      box-shadow: 0 6px 18px rgba(5, 150, 105, 0.12);
+      box-shadow: 0 4px 14px rgba(5, 150, 105, 0.15);
     }
     .nav-item.active::after {
       content: "";
@@ -684,74 +704,47 @@ export const navbarStyles = {
       bottom: -8px;
       left: 50%;
       transform: translateX(-50%);
-      width: 6px;
-      height: 6px;
+      width: 5px;
+      height: 5px;
       background: #10b981;
       border-radius: 9999px;
-      animation: pulse 2s infinite;
+      animation: dotPulse 2s infinite;
     }
-    @keyframes pulse {
-      0%,
-      100% {
-        opacity: 1;
-        transform: translateX(-50%) scale(1);
-      }
-      50% {
-        opacity: 0.5;
-        transform: translateX(-50%) scale(1.25);
-      }
+    @keyframes dotPulse {
+      0%, 100% { opacity: 1; transform: translateX(-50%) scale(1); }
+      50% { opacity: 0.5; transform: translateX(-50%) scale(1.3); }
     }
-    @keyframes slideIn {
-      from {
-        opacity: 0;
-        transform: translateY(-10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    @keyframes navFadeIn {
+      from { opacity: 0; transform: translateY(-6px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    
-    /* Add button styles */
     .btn-add {
       background-image: linear-gradient(white, white), linear-gradient(90deg, #10b981, #34d399, #059669);
       background-origin: padding-box, border-box;
       background-clip: padding-box, border-box;
       border: 2px solid transparent;
       border-radius: 9999px;
-      box-shadow: 0 2px 8px rgba(16,185,129,0.06);
-      transform: translateZ(0);
     }
     .btn-add:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(16,185,129,0.12);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(16,185,129,0.15);
     }
     .btn-login {
-      animation: glow 2.2s ease-in-out infinite;
+      animation: loginGlow 2.5s ease-in-out infinite;
     }
-    @keyframes glow {
-      0%,
-      100% {
-        box-shadow: 0 0 20px rgba(16, 185, 129, 0.22),
-          0 4px 12px rgba(16, 185, 129, 0.12);
-      }
-      50% {
-        box-shadow: 0 0 32px rgba(16, 185, 129, 0.36),
-          0 6px 22px rgba(16, 185, 129, 0.18);
-      }
-    }
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        height: 0;
-      }
-      to {
-        opacity: 1;
-        height: auto;
-      }
+    @keyframes loginGlow {
+      0%, 100% { box-shadow: 0 0 18px rgba(16,185,129,0.2), 0 4px 10px rgba(16,185,129,0.1); }
+      50% { box-shadow: 0 0 28px rgba(16,185,129,0.35), 0 6px 18px rgba(16,185,129,0.18); }
     }
     .mobile-menu {
-      animation: fadeIn 0.28s ease-out;
+      animation: mobileSlide 0.25s ease-out;
+    }
+    @keyframes mobileSlide {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 640px) {
+      .btn-login { display: none; }
     }
   `
 };
