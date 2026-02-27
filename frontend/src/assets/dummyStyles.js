@@ -398,100 +398,153 @@ export const doctorsPageStyles = {
 // Footer styles
 export const footerStyles = {
   // Main container
-  footerContainer: "relative font-serif bg-linear-to-br from-emerald-50 via-green-50 to-teal-50 border-t border-emerald-200 overflow-hidden",
-  
+  footerContainer: "relative font-serif bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 border-t border-emerald-200 overflow-hidden",
+
   // Floating icons
-  floatingIcon1: "absolute top-5 right-5 animate-float hidden md:block",
-  floatingIcon2: "absolute top-1/3 left-5 animate-float hidden md:block",
-  stethoscopeIcon: "w-8 h-8 text-emerald-600",
-  activityIcon: "w-5 h-5 text-green-500",
-  
+  floatingIcon1: "absolute top-6 right-6 animate-float hidden md:block opacity-40",
+  floatingIcon2: "absolute top-1/3 left-6 animate-float hidden md:block opacity-30",
+  stethoscopeIcon: "w-7 h-7 text-emerald-500",
+  activityIcon: "w-5 h-5 text-green-400",
+
   // Main content
-  mainContent: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16 relative z-10",
-  gridContainer: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 lg:gap-12 mb-10 text-center lg:text-left",
-  
+  mainContent: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-16 relative z-10",
+  gridContainer: "grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-13 lg:gap-10 mb-8 sm:mb-10",
+
   // Company info
-  companySection: "lg:col-span-1 flex flex-col items-center lg:items-start",
-  logoContainer: "flex items-center space-x-5 mb-6 transform transition-transform duration-500",
-  logoWrapper: "relative",
-  logoImageContainer: "relative w-16 h-16 md:w-18 md:h-18 lg:w-20 lg:h-20 p-1 transform transition-transform duration-500",
+  companySection: "sm:col-span-2 lg:col-span-1 flex flex-col items-center lg:items-start",
+  logoContainer: "flex items-center gap-3 mb-4 footer-logo",
+  logoWrapper: "relative shrink-0",
+  logoImageContainer: "w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16",
   logoImage: "w-full h-full object-contain",
-  companyName: "text-2xl md:text-3xl lg:text-3xl font-bold bg-linear-to-r from-emerald-600 to-green-700 bg-clip-text text-transparent font-['Poppins'] tracking-tight",
-  companyTagline: "text-emerald-600 font-serif text-xs md:text-sm font-semibold tracking-wide mt-1",
-  companyDescription: "text-emerald-700 font-serif italic mb-5 leading-relaxed text-sm md:text-base font-light",
-  
+  companyName: "text-xl sm:text-2xl font-bold bg-gradient-to-r from-emerald-600 to-green-700 bg-clip-text text-transparent tracking-tight",
+  companyTagline: "text-emerald-600 text-xs font-semibold tracking-wide mt-0.5",
+  companyDescription: "text-emerald-700 italic mb-5 leading-relaxed text-sm font-light text-center lg:text-left max-w-xs",
+
   // Contact info
-  contactContainer: "space-y-3 w-full md:w-auto",
-  contactItem: "flex items-center justify-center md:justify-start space-x-4 text-emerald-700 hover:text-emerald-800 transition-all duration-300 group transform hover:translate-x-0 md:hover:translate-x-2",
-  contactIconWrapper: "w-9 h-9 md:w-10 md:h-10 bg-emerald-100 rounded-full flex items-center justify-center transition-colors duration-300 shadow-sm",
-  contactIcon: "w-4 h-4 text-emerald-600",
+  contactContainer: "space-y-2.5 w-full",
+  contactItem: "flex items-center justify-center lg:justify-start gap-3 text-emerald-700 hover:text-emerald-900 transition-all duration-300 group footer-contact-item",
+  contactIconWrapper: "w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center group-hover:bg-emerald-200 transition-colors duration-300 shrink-0",
+  contactIcon: "w-3.5 h-3.5 text-emerald-600",
   contactText: "text-sm font-medium",
-  
+
   // Links sections
-  linksSection: "lg:col-span-1",
-  sectionTitle: "text-lg md:text-xl font-bold text-emerald-800 mb-6 relative inline-block",
-  linksList: "space-y-2",
-  linkItem: "w-full",
-  
-  // Quick Links
-  quickLink: "flex items-center justify-center md:justify-start text-emerald-700 hover:text-emerald-800 transition-all duration-300 group text-sm md:text-base font-medium py-2 px-3 rounded-lg hover:bg-emerald-50 border border-transparent hover:border-emerald-200",
-  quickLinkIconWrapper: "w-7 h-7 bg-emerald-100 rounded-full flex items-center justify-center mr-3",
+  linksSection: "flex flex-col items-center lg:items-start",
+  sectionTitle: "text-base sm:text-lg font-bold text-emerald-800 mb-4 relative footer-section-title",
+  linksList: "space-y-1 w-full",
+  linkItem: "w-full footer-link-item",
+
+  // Quick links
+  quickLink: "flex items-center justify-center lg:justify-start gap-2 text-emerald-700 hover:text-emerald-900 transition-all duration-300 text-sm font-medium py-1.5 px-3 rounded-lg hover:bg-emerald-50 group",
+  quickLinkIconWrapper: "w-6 h-6 bg-emerald-100 rounded-full flex items-center justify-center shrink-0 group-hover:bg-emerald-200 transition-colors duration-300",
   quickLinkIcon: "w-3 h-3 text-emerald-600",
-  
+
   // Services
-  serviceLink: "flex items-center justify-center md:justify-start text-emerald-700 hover:text-green-700 transition-all duration-300 group text-sm md:text-base font-medium py-2 px-3 rounded-lg hover:bg-green-50 border border-transparent hover:border-green-200",
-  serviceIcon: "w-3 h-3 bg-green-500 rounded-full mr-3",
-  
+  serviceLink: "flex items-center justify-center lg:justify-start gap-3 text-emerald-700 hover:text-green-700 transition-all duration-300 text-sm font-medium py-1.5 px-3 rounded-lg hover:bg-green-50 group",
+  serviceIcon: "w-2  h-2 bg-green-500 rounded-full shrink-0 group-hover:scale-125 transition-transform duration-300",
+
   // Newsletter & Social
-  newsletterSection: "lg:col-span-1 flex flex-col items-center lg:items-start",
-  newsletterTitle: "text-lg md:text-xl font-bold text-emerald-800 mb-4",
-  newsletterDescription: "text-emerald-700 text-sm md:text-base mb-4 font-light text-center lg:text-left",
-  newsletterForm: "w-full max-w-md",
-  
+  newsletterSection: "sm:col-span-2 lg:col-span-1 flex flex-col items-center lg:items-start",
+  newsletterTitle: "text-base sm:text-lg font-bold text-emerald-800 mb-3",
+  newsletterDescription: "text-emerald-700 text-sm mb-4 font-light text-center lg:text-left",
+  newsletterForm: "w-full",
+
   // Mobile newsletter
-  mobileNewsletterContainer: "flex flex-col gap-3 lg:hidden",
-  emailInput: "w-full px-4 py-3 text-base text-emerald-800 bg-white border-2 border-emerald-200 rounded-full focus:outline-none focus:ring-4 focus:ring-emerald-300 focus:border-emerald-400 transition-all duration-300 shadow-sm placeholder-emerald-400",
-  mobileSubscribeButton: "w-full inline-flex items-center justify-center gap-2 py-3 rounded-full bg-linear-to-r from-emerald-500 to-green-600 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300",
+  mobileNewsletterContainer: "flex flex-col gap-2 lg:hidden",
+  emailInput: "w-full px-4 py-2.5 text-sm text-emerald-800 bg-white border-2 border-emerald-200 rounded-full focus:outline-none focus:ring-2 focus:ring-emerald-300 focus:border-emerald-400 transition-all duration-300 shadow-sm placeholder-emerald-400",
+  mobileSubscribeButton: "w-full inline-flex items-center justify-center gap-2 py-2.5 rounded-full bg-gradient-to-r from-emerald-500 to-green-600 text-white font-semibold text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300",
   mobileButtonIcon: "w-4 h-4",
-  
+
   // Desktop newsletter
   desktopNewsletterContainer: "relative hidden lg:block",
-  desktopEmailInput: "w-full px-6 py-4 text-base text-emerald-800 bg-white border-2 border-emerald-200 rounded-full focus:outline-none focus:ring-4 focus:ring-emerald-300 focus:border-emerald-400 transition-all duration-300 transform shadow-lg placeholder-emerald-400",
-  desktopSubscribeButton: "absolute right-2 xl:px-2 top-2 bg-linear-to-r from-emerald-500 to-green-600 text-white px-4 py-2 rounded-full cursor-pointer transition-all duration-300 transform flex items-center shadow-lg hover:shadow-xl",
-  desktopButtonIcon: "w-4 h-4 mr-2",
-  desktopButtonText: "font-semibold",
-  
+  desktopEmailInput: "w-full px-5 py-3 text-sm text-emerald-800 bg-white border-2 border-emerald-200 rounded-full focus:outline-none focus:ring-2 focus:ring-emerald-300 focus:border-emerald-400 transition-all duration-300 shadow-md placeholder-emerald-400",
+  desktopSubscribeButton: "absolute right-1.5 top-1.5 bg-gradient-to-r from-emerald-500 to-green-600 text-white px-4 py-1.5 rounded-full cursor-pointer transition-all duration-300 flex items-center gap-1.5 shadow-md hover:shadow-lg hover:from-emerald-600 hover:to-green-700",
+  desktopButtonIcon: "w-3.5 h-3.5",
+  desktopButtonText: "font-semibold text-sm",
+
   // Social links
-  socialContainer: "flex gap-3 justify-center lg:justify-start mt-6",
-  socialLink: "relative group",
-  socialIconBackground: "absolute inset-0 bg-linear-to-r from-emerald-400 to-green-500 rounded-full transform scale-0 group-hover:scale-110 transition-transform duration-300 hidden lg:block",
-  socialIcon: "w-10 h-10 md:w-11 md:h-11 lg:w-12 lg:h-12 p-2 text-emerald-700 cursor-pointer transform hover:scale-110 hover:rotate-6 transition-all duration-300 relative z-10 bg-white rounded-2xl shadow-lg border-2 border-emerald-100",
-  
+  socialContainer: "flex gap-2.5 justify-center lg:justify-start mt-5",
+  socialLink: "relative group footer-social-item",
+  socialIconBackground: "absolute inset-0 bg-gradient-to-r from-emerald-400 to-green-500 rounded-2xl transform scale-0 group-hover:scale-110 transition-transform duration-300",
+  socialIcon: "w-9 h-9 sm:w-10 sm:h-10 p-2 cursor-pointer transform hover:scale-110 transition-all duration-300 relative z-10 bg-white rounded-2xl shadow-md border border-emerald-100 group-hover:border-transparent group-hover:text-white group-hover:bg-transparent",
+
   // Social icon colors
   facebookColor: "hover:text-blue-600",
   twitterColor: "hover:text-blue-400",
   instagramColor: "hover:text-pink-600",
   linkedinColor: "hover:text-blue-700",
   youtubeColor: "hover:text-red-600",
-  
+
   // Bottom section
-  bottomSection: "flex flex-col md:flex-row justify-center lg:justify-between items-center gap-4 md:gap-6 border-t border-emerald-100 pt-6",
-  copyright: "text-emerald-700 text-sm md:text-base font-medium flex items-center gap-2",
-  designerText: "text-emerald-700 text-sm md:text-base font-medium flex items-center gap-2",
-  designerLink: "font-bold text-emerald-500 hover:text-purple-700 transition-colors duration-300",
-  
-  // Animation keyframes for floating icons (to be added via style tag)
+  bottomSection: "flex flex-col sm:flex-row justify-between items-center gap-3 border-t border-emerald-100 pt-6",
+  copyright: "text-emerald-700 text-xs sm:text-sm font-medium",
+  designerText: "text-emerald-700 text-xs sm:text-sm font-medium flex items-center gap-1.5",
+  designerLink: "font-bold text-emerald-500 hover:text-purple-600 transition-colors duration-300",
+
+  // Animation styles
   animationStyles: `
     @keyframes float {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-10px);
-      }
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
     }
-    .animate-float {
-      animation: float 3s ease-in-out infinite;
+    .animate-float { animation: float 4s ease-in-out infinite; }
+
+    @keyframes footerFadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes footerSlideIn {
+      from { opacity: 0; transform: translateX(-12px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes socialPop {
+      from { opacity: 0; transform: scale(0.7); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes titleUnderline {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    .footer-logo {
+      animation: footerFadeUp 0.6s ease-out forwards;
+    }
+    .footer-section-title::after {
+      content: '';
+      display: block;
+      height: 2px;
+      background: linear-gradient(to right, #10b981, transparent);
+      margin-top: 6px;
+      animation: titleUnderline 0.8s ease-out forwards;
+    }
+    .footer-contact-item {
+      animation: footerSlideIn 0.4s ease-out forwards;
+      opacity: 0;
+    }
+    .footer-contact-item:nth-child(1) { animation-delay: 0.1s; }
+    .footer-contact-item:nth-child(2) { animation-delay: 0.2s; }
+    .footer-contact-item:nth-child(3) { animation-delay: 0.3s; }
+
+    .footer-link-item {
+      animation: footerSlideIn 0.4s ease-out forwards;
+      opacity: 0;
+    }
+    .footer-link-item:nth-child(1) { animation-delay: 0.05s; }
+    .footer-link-item:nth-child(2) { animation-delay: 0.1s; }
+    .footer-link-item:nth-child(3) { animation-delay: 0.15s; }
+    .footer-link-item:nth-child(4) { animation-delay: 0.2s; }
+    .footer-link-item:nth-child(5) { animation-delay: 0.25s; }
+
+    .footer-social-item {
+      animation: socialPop 0.4s ease-out forwards;
+      opacity: 0;
+    }
+    .footer-social-item:nth-child(1) { animation-delay: 0.1s; }
+    .footer-social-item:nth-child(2) { animation-delay: 0.2s; }
+    .footer-social-item:nth-child(3) { animation-delay: 0.3s; }
+    .footer-social-item:nth-child(4) { animation-delay: 0.4s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
     }
   `
 };
