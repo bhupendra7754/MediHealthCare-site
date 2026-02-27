@@ -115,7 +115,7 @@ const Banner = () => {
                 </button>
 
                 <button
-                  onClick={() => (window.location.href = "tel:8299431275")}
+                  onClick={() => (window.location.href = "tel:8756881972")}
                   aria-label="Emergency Call"
                   className={bannerStyles.emergencyButton}
                 >

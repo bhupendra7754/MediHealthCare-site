@@ -121,7 +121,7 @@ export default function ContactPage() {
       form.department || "N/A"
     }\nService: ${form.service || "N/A"}\nMessage: ${form.message}`;
 
-    const url = `https://wa.me/8299431275?text=${encodeURIComponent(text)}`;
+    const url = `https://wa.me/8756881972?text=${encodeURIComponent(text)}`;
     window.open(url, "_blank");
 
     setForm(initial);
@@ -311,7 +311,7 @@ export default function ContactPage() {
               Gomtinagar, Lucknow, Uttar Pradesh
             </p>
             <p className={contactPageStyles.infoItem}>
-              <Phone size={16} /> 8299431275
+              <Phone size={16} /> 7754098932
             </p>
             <p className={contactPageStyles.infoItem}>
               <Mail size={16} /> info@yourclinic.com

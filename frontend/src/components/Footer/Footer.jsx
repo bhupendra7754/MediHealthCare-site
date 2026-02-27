@@ -40,31 +40,26 @@ const Footer = () => {
       Icon: Facebook,
       color: footerStyles.facebookColor,
       name: "Facebook",
-      href: "https://www.facebook.com/people/Hexagon-Digital-Services/61567156598660/",
+      href: "https://www.facebook.com/share/1DgpNWU89P/",
     },
-    {
-      Icon: Twitter,
-      color: footerStyles.twitterColor,
-      name: "Twitter",
-      href: "https://www.linkedin.com/company/hexagondigtial-services/",
-    },
+ 
     {
       Icon: Instagram,
       color: footerStyles.instagramColor,
       name: "Instagram",
-      href: "http://instagram.com/hexagondigitalservices?igsh=MWp2NG1oNTlibWVnZA%3D%3D",
+      href: "https://www.instagram.com/_a_n_k_i_t_ydv.45_/",
     },
     {
       Icon: Linkedin,
       color: footerStyles.linkedinColor,
       name: "LinkedIn",
-      href: "https://www.linkedin.com/company/hexagondigtial-services/",
+      href: "https://www.linkedin.com/in/bhupendra-ydv/",
     },
     {
       Icon: Youtube,
       color: footerStyles.youtubeColor,
       name: "YouTube",
-      href: "https://youtube.com/@hexagondigitalservices?si=lxEFYNCP42t6AoDJ",
+      href: "https://youtube.com",
     },
   ];
 
@@ -117,14 +112,14 @@ const Footer = () => {
                 <div className={footerStyles.contactIconWrapper}>
                   <Phone className={footerStyles.contactIcon} />
                 </div>
-                <span className={footerStyles.contactText}>+91 8299431275</span>
+                <span className={footerStyles.contactText}>+91 8756881972</span>
               </div>
               <div className={footerStyles.contactItem}>
                 <div className={footerStyles.contactIconWrapper}>
                   <Mail className={footerStyles.contactIcon} />
                 </div>
                 <span className={footerStyles.contactText}>
-                  hexagonsservices@gmail.com
+                  yadava9042@gmail.com
                 </span>
               </div>
               <div className={footerStyles.contactItem}>
@@ -248,7 +243,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className={footerStyles.designerLink}
             >
-              Hexagon Digital Services
+              Bhupendra Yadav College Student
             </a>
           </div>
         </div>
